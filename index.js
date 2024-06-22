@@ -1,4 +1,4 @@
-async function carregarUsuarios(){
+async function carregarPersonagens(){
     const requestOptions = {
         method: "GET"
     }
@@ -12,23 +12,23 @@ async function carregarUsuarios(){
 };
 
 
-function alimentaTabela(usuarios) {
-    const htmlUsuarios = usuarios.map(usuario => `
+function alimentaTabela(personagens) {
+    const htmlPersonagens = personagens.map(personagem => `
             <tr>
-                <td>${usuario.id}</td>
-                <td>${usuario.name}</td>
-                <td>${usuario.status}</td>
-                <td>${usuario.species}</td>
-                <td>${usuario.gender}</td>
-                <td>${usuario.origin.name}</td>
-                <td>${usuario.location.name}</td>
+                <td><img src="${personagem.image}" alt="imagemPersonagem"></img></td>
+                <td>${personagem.name}</td>
+                <td>${personagem.status}</td>
+                <td>${personagem.species}</td>
+                <td>${personagem.gender}</td>
+                <td>${personagem.origin.name}</td>
+                <td>${personagem.location.name}</td>
             </tr>
         `
     )
 
-    const htmlConteudo = htmlUsuarios.join("");
+    const htmlConteudo = htmlPersonagens.join("");
     document.getElementById('conteudo').innerHTML = htmlConteudo
 }
 
 
-carregarUsuarios();
+carregarPersonagens();
